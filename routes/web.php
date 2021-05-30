@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 $router->get( '/', [ 'uses' => 'HomeController@index', 'as' => 'home' ] );
 
+$router->resource( 'users', 'UsersController' );
+
