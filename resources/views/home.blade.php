@@ -14,10 +14,5 @@
     <h2>6 - Sort teams</h2>
     <h2>7 - Balance teams</h2>
     <h2>8 - Heroku</h2>
-    <ul>
-        @foreach ($users as $user)
-        <li>{{$user->name}}</li>
-        @endforeach
-    </ul>
 @endsection
 

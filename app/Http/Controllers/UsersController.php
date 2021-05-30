@@ -5,21 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
-use App\Helpers\Toastr;
 
 
 class UsersController extends Controller
 {
     public function index( Request $request )
     {
-        $search = value_or_null( $request->query( 'search', false ) );
+        $users = User::all();
 
-        $users = User::withTrashed()
-            ->search( $search )
-            ->ordered()
-            ->appends( [ 'search' => $search ?: '' ] );
 
-        return view( 'users.index', compact( 'users', 'search' ) );
+        return view( 'users.index', compact( 'users' ) );
     }
 
     public function show( User $user )
@@ -47,13 +42,21 @@ class UsersController extends Controller
     {
         /** @var User $user */
 
+        $this->validate( $request, [
+            'skill' => 'required|max:1',
+            'goalkeeper' => 'required|max:1',
+            'email' => 'required|unique:users|max:255',
+            'name' => 'required|max:255',
+        ], [], [
+            'description' => 'Habilidade',
+        ] );
+
         $dados = $request->all();
 
         $user = User::create($dados);
 
         // 8 == Operação / Hora-a-Hora
 
-        Toastr::success( 'Usuário criado com sucesso' );
 
         return redirect()->route( 'home' );
     }

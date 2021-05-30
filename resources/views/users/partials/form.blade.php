@@ -29,6 +29,7 @@
         <label for="skill" class="control-label">Habilidade</label>
 
         <input type="number" name="skill" id="skill" class="form-control mask-digits"
+               required
                maxlength="1" minlength="1"
                placeholder="1"
                value="{{ old('skill', $user->skill) }}">
