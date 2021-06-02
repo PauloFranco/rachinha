@@ -48,14 +48,12 @@ class UsersController extends Controller
             'email' => 'required|unique:users|max:255',
             'name' => 'required|max:255',
         ], [], [
-            'description' => 'Habilidade',
+            'skill' => 'Habilidade',
         ] );
 
         $dados = $request->all();
 
         $user = User::create($dados);
-
-        // 8 == Operação / Hora-a-Hora
 
 
         return redirect()->route( 'home' );

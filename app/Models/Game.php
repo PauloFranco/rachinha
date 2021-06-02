@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Match extends Model
+use App\Models\User;
+
+class Game extends Model
 {
     use HasFactory;
 
@@ -16,7 +18,6 @@ class Match extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
         'date',
         'size',
     ];
@@ -37,6 +38,12 @@ class Match extends Model
     protected $casts = [
         'date' => 'datetime',
     ];
+
+
+    public function users()
+    {
+        return $this->belongsToMany( User::class);
+    }
 }
 
 

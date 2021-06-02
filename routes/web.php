@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$router->get( '/', [ 'uses' => 'HomeController@index', 'as' => 'home' ] );
+$router->get( '/', [ 'uses' => 'GamesController@index', 'as' => 'home' ] );
 
 $router->resource( 'users', 'UsersController' );
+
+$router->resource( 'games', 'GamesController' );
 
