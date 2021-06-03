@@ -42,7 +42,7 @@
             <div class="col-sm-6 form-group {{ $errors->has('confirmation') ? 'has-error' : '' }}">
                 <label for="confirmation" class="control-label">Confirmados</label>
             </br>
-                @foreach($users as $user)
+                @foreach($users as $user    )
                     <input  type="checkbox" name="confirmation[]" id="confirmation_{{$user->id}}" value="{{$user->id}}"{{$confirmados->find($user->id) ? "checked": ""}} />
                     <label  for="confirmation_{{$user->id}}"> {{$user->name}}</label><br>
                 @endforeach

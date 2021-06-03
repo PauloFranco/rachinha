@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Presenters\Presentable;
+
 
 use App\Models\User;
 
 class Game extends Model
 {
-    use HasFactory;
+    use HasFactory, Presentable;
 
     
     /**

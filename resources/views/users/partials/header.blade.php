@@ -1,9 +1,10 @@
 <div class="page-header clearfix">
-    <div class="pull-right">
-        <a class="btn btn-info" href="{{route('users.index')}}" style="float:right" role="button">Jogadores</a>
 
-        @include('games.partials.action-buttons', [
-            'game'    => $game,
+    <div class="pull-right">
+        <a class="btn btn-info" href="{{route('games.index')}}" style="float:right" role="button">Partidas</a>
+
+        @include('users.partials.action-buttons', [
+            'user'    => $user,
             'showLabel' => true,
             'except'    => $except,
         ])
