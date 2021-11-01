@@ -44,6 +44,10 @@
 
             <button class="btn btn-success"><i class="fa fa-fw fa-plus"></i> criar</button>
         </p>
-
     </form>
+
+    <script type="text/javascript">
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("date")[0].setAttribute('min', today);
+    </script>
 @endsection

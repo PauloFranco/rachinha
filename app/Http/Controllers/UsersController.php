@@ -36,8 +36,8 @@ class UsersController extends Controller
         /** @var User $user */
 
         $this->validate( $request, [
-            'skill' => 'required|max:1',
-            'goalkeeper' => 'required|max:1',
+            'skill' => 'required|integer|min:1|max:5',
+            'goalkeeper' => 'required|integer|min:0|max:1',
             'name' => 'required|max:255',
         ], [], [
             'skill' => 'Habilidade',

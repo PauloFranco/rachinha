@@ -12,7 +12,7 @@ class GamesController extends Controller
 {
     public function index( Request $request )
     {
-        $games = Game::all();
+        $games = Game::all()->sortByDesc('created_at');
         $users = User::all();
 
 
@@ -31,8 +31,8 @@ class GamesController extends Controller
         /** @var Game $game */
 
         $this->validate( $request, [
-            'date' => 'required',
-            'size' => 'required|max:2',
+            'date' => 'required|date',
+            'size' => 'required|integer|max:11|min:1',
         ], [], [
             'date' => 'Data da partida',
             'size' => 'Jogadores por time',
